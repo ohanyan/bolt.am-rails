@@ -177,6 +177,7 @@ DEPENDENCIES
   imgix
   jbuilder (~> 2.0)
   jquery-rails
+  json
   koala (~> 2.2)
   pg
   pusher
