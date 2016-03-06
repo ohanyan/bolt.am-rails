@@ -56,5 +56,5 @@ gem 'active_model_serializers', '~> 0.9.4'
 # heroku
 gem 'rails_12factor', group: :production
 
-ruby "2.3.0"
+ruby "2.2.4"
 
