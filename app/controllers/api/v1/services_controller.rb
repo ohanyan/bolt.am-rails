@@ -1,7 +1,7 @@
 class Api::V1::ServicesController < Api::V1::BaseController
 	  before_filter :authenticate_user!, only: [:show, :update, :destroy]
 
-def index
+  def index
     puts categories = params[:categories].split(',')
     services = Service.all
 
@@ -13,4 +13,5 @@ def index
       )
     )
   end
+
 end

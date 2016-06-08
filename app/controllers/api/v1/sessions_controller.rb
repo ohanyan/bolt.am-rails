@@ -23,7 +23,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
       @graph = Koala::Facebook::API.new(create_params[:token])
 
       begin
-        profile = @graph.get_object("me", {fields: 'id, name, email'})
+        profile = @graph.get_object("me", {fields: 'id, first_name, last_name, email'})
       rescue Koala::Facebook::APIError
          return api_error(status: 401)
       end
@@ -33,7 +33,8 @@ class Api::V1::SessionsController < Api::V1::BaseController
       user = User.find_by_email(email)
       image = "http://graph.facebook.com/#{profile['id']}/picture"
 
-      user = User.create(email: email, name: profile["name"], image: image) unless user
+      generated_password = Devise.friendly_token.first(8)
+      user = User.create(email: email, first_name: profile["first_name"], last_name: profile["last_name"], image: image, password: generated_password) unless user
 
       render(
         json: Api::V1::SessionSerializer.new(user, root: false).to_json,

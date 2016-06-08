@@ -14,7 +14,7 @@ gem 'rails', '4.2.5'
 gem 'sqlite3', :groups => [:development, :test]
 gem 'pg', group: :production
 gem 'bcrypt'
-
+gem 'devise'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -57,6 +57,11 @@ gem 'active_model_serializers', '~> 0.9.4'
 
 # heroku
 gem 'rails_12factor', group: :production
+
+gem 'activeadmin', github: 'activeadmin'
+
+gem 'rack-cors', :require => 'rack/cors'
+
 
 ruby "2.2.4"
 

@@ -26,3 +26,40 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+New Specialist
+
+/api/v1/specialists METHOD: POST = create
+POST BODY:
+:email, 
+:password, 
+:first_name, 
+:last_name
+
+
+
+ON SUCCESS
+
+/api/v1/sessions METHOD: POST = create
+POST BODY:
+
+>  OR email & password
+OR token (facebook token)
+
+
+
+curl --data "user[email]=a@a.com&user[password]=something&user[first_name]=Mher" http://localhost:3000/api/v1/specialists
+
+curl --data "user[email]=a@a.com&user[password]=something" http://localhost:3000/api/v1/sessions
+
+
+curl --data "user[email]=a@a.com&user[password]=something" http://bolt-mher.ngrok.io/api/v1/sessions
+
+
+{"id":2,"email":"a@a.com","first_name":"Mher","image":null,"token":"M3MzarDkYCCmDYKTsWXMFyRPdh7cRkujLT9nF9CvnsNZNji4qrLouopTD9J+Qe9BrbVdSXSKK58KcfVeNEeQJQ=="}
+
+
+
+
+curl -H 'Authorization: Token token="vdWEFLgzxQYKr69bBU5rOf0tAPs6LI3+bUvPIgswQgSNFv3ajoqF22FilXpwzoFMzxfgtr4eVesjdpdK66/ZJA==", email="ohanyan@gmail.com"' http://localhost:3000/api/v1/posts/1/images -F "image[file]=@/Users/ohanyan/Desktop/pandok.JPG"
