@@ -1,0 +1,1 @@
+Koala.http_service.http_options = { :ssl => { :ca_file => Rails.root.join('lib/cacert.pem').to_s } }
