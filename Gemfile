@@ -55,6 +55,8 @@ gem 'dotenv-rails', :groups => [:development, :test]
 # gem 'debugger', group: [:development, :test]
 gem 'active_model_serializers', '~> 0.9.4'
 
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+
 # heroku
 gem 'rails_12factor', group: :production
 
