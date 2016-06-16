@@ -30,6 +30,11 @@ class Api::V1::SessionsController < Api::V1::BaseController
 
       email = profile["email"]
 
+      unless email
+        id = profile["id"]
+        email = "#{id}@fb_bolt.am"
+      end
+
       user = User.find_by_email(email)
       image = "http://graph.facebook.com/#{profile['id']}/picture"
 
